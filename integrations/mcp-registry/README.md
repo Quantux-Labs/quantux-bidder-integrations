@@ -10,6 +10,8 @@
 | Endpoint | `https://api-quantux-bidder.quantuxlabs.com/mcp` |
 | Publisher identity | Control of `quantuxlabs.com` |
 
+Initial release: [`0.1.0`](https://registry.modelcontextprotocol.io/v0.1/servers/com.quantuxlabs%2Fquantux-bidder/versions/0.1.0), published on 2026-10-15.
+
 The manifest lives in this directory because it belongs to the MCP Registry integration. Other integration packages have independent formats and publication processes.
 
 ## Ownership and source

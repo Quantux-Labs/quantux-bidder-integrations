@@ -2,6 +2,8 @@
 
 Public integration metadata and connection instructions for [Quantux Bidder](https://quantux-bidder.quantuxlabs.com).
 
+Published MCP Registry entry: [`com.quantuxlabs/quantux-bidder`](https://registry.modelcontextprotocol.io/v0.1/servers/com.quantuxlabs%2Fquantux-bidder/versions/0.1.0), version `0.1.0`.
+
 Quantux Bidder helps you find freelance work, assess opportunities, and prepare applications with your AI assistant. Freelancer is the currently supported marketplace. Application work follows your direction, and submission requires your approval.
 
 ## Connect to the hosted MCP server
