@@ -1,0 +1,34 @@
+# Quantux Bidder integrations
+
+Public integration metadata and connection instructions for [Quantux Bidder](https://quantux-bidder.quantuxlabs.com).
+
+Quantux Bidder helps you find freelance work, assess opportunities, and prepare applications with your AI assistant. Freelancer is the currently supported marketplace. Application work follows your direction, and submission requires your approval.
+
+## Connect to the hosted MCP server
+
+Use an assistant that supports remote MCP servers and OAuth authorization. Add this server address, then sign in to Quantux Bidder and authorize the connection when prompted:
+
+```text
+https://api-quantux-bidder.quantuxlabs.com/mcp
+```
+
+The server uses Streamable HTTP. Account setup and product information are available on the [Quantux Bidder website](https://quantux-bidder.quantuxlabs.com).
+
+## Repository layout
+
+```text
+integrations/
+  mcp-registry/
+    README.md
+    server.json
+```
+
+Each integration owns its own files and release process. The [MCP Registry integration](integrations/mcp-registry/README.md) describes the existing hosted server. Provider plugins can be added in separate directories when they are developed; they do not depend on the registry manifest.
+
+Publishing metadata to the MCP Registry makes it available to registry consumers. Availability in a provider's official directory requires that provider's own publication process.
+
+## Scope and license
+
+This repository contains public integration files for a separately hosted service. The hosted server implementation is maintained separately.
+
+Files in this repository are available under the [MIT License](LICENSE). Metadata submitted to the official MCP Registry is additionally subject to the registry's [CC0 dedication](https://modelcontextprotocol.io/registry/terms-of-service).
