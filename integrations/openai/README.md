@@ -17,7 +17,7 @@ quantux-bidder/
 
 The ZIP must contain this single plugin directory. Keep the MCP Registry's `server.json`, these preparation notes, Git metadata, backend source, credentials, and recorded account details outside the ZIP.
 
-The OpenAI package version is independent of the MCP Registry metadata version. The stable plugin name remains `quantux-bidder`; version `0.4.0` adds public listing and review preparation to the existing `0.3.0` package identity. The original source and any existing private installation retain their own state.
+Version `0.1.0` is the first public plugin release. The plugin name is `quantux-bidder`. Its version is independent of the hosted service and the MCP Registry metadata version.
 
 ## Preparation status
 
@@ -37,7 +37,7 @@ The missing demo URL is intentionally absent from the manifest. Do not substitut
 From the integrations repository root, choose an output path outside `integrations/openai/quantux-bidder/`:
 
 ```sh
-python3 -m zipfile -c /absolute/output/quantux-bidder-openai-0.4.0-draft.zip integrations/openai/quantux-bidder
+python3 -m zipfile -c /absolute/output/quantux-bidder-openai-0.1.0-draft.zip integrations/openai/quantux-bidder
 ```
 
 Inspect the resulting ZIP to confirm its only root is `quantux-bidder/` and that the manifest, MCP connection, and referenced icon are included. Validate the JSON against the exact declared schemas and the OpenAI-specific submission requirements.

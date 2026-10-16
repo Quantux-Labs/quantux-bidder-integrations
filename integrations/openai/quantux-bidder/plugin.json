@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "quantux-bidder",
-  "version": "0.4.0",
+  "version": "0.1.0",
   "description": "Find freelance work, assess opportunities, and prepare user-directed applications with Quantux Bidder.",
   "author": {
     "name": "Quantux Labs LLC",
@@ -83,7 +83,7 @@
       },
       "publication": {
         "countries": [],
-        "release_notes": "Prepare the first public directory package from the existing Quantux Bidder plugin identity. Include verified listing links, the existing product icon, five positive and three negative review cases, all available country targeting, and the website subscription declaration. The hosted MCP endpoint is unchanged."
+        "release_notes": "Initial public directory package for Quantux Bidder. Includes listing links, the product icon, five positive and three negative review cases, all available country targeting, and the website subscription declaration. Connects to the hosted Quantux Bidder MCP endpoint."
       }
     }
   }
