@@ -3,3 +3,4 @@
 .mcpregistry*
 *.key
 *.pem
+artifacts/

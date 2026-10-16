@@ -1,0 +1,90 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "quantux-bidder",
+  "version": "0.4.0",
+  "description": "Find freelance work, assess opportunities, and prepare user-directed applications with Quantux Bidder.",
+  "author": {
+    "name": "Quantux Labs LLC",
+    "email": "bidder@quantuxlabs.com",
+    "url": "https://quantuxlabs.com"
+  },
+  "homepage": "https://quantux-bidder.quantuxlabs.com",
+  "repository": "https://github.com/Quantux-Labs/quantux-bidder-integrations",
+  "license": "MIT",
+  "keywords": ["freelancer", "bidding", "applications", "mcp"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Quantux Bidder",
+        "shortDescription": "AI bidding workspaces",
+        "longDescription": "Use your AI assistant with a saved Quantux Bidder workspace to find and assess Freelancer.com opportunities, maintain your professional context, and prepare applications at your direction. Reopen saved sessions and applications to continue earlier work. You review the current application content and commercial terms before approving a submission. A connected Freelancer account and an active Quantux Bidder trial or subscription are required for work tools. Account setup and subscription management take place on the Quantux Bidder website. Quantux Bidder does not provide an AI subscription or guarantee work or earnings.",
+        "developerName": "Quantux Labs LLC",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://quantux-bidder.quantuxlabs.com",
+        "supportURL": "https://quantux-bidder.quantuxlabs.com/support",
+        "privacyPolicyURL": "https://quantux-bidder.quantuxlabs.com/privacy",
+        "termsOfServiceURL": "https://quantux-bidder.quantuxlabs.com/terms",
+        "defaultPrompt": "Read my Application Context and list my Bidding Sessions without changing anything.",
+        "logo": "./assets/icon.png",
+        "composerIcon": "./assets/icon.png"
+      },
+      "review": {
+        "commerce": true,
+        "commerce_description": "Quantux Bidder work tools require an active trial or subscription purchased on the Quantux Bidder website. The plugin connects an existing authorized account and uses its existing entitlement. Its MCP tools do not create subscriptions, take payments, open checkout, or sell subscription upgrades in ChatGPT.",
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Read professional context from the connected review account. Before running, prepare a dedicated account with sample professional context and active work entitlement. Use only that account's data.",
+              "prompt": "Read my saved professional context in Quantux Bidder and summarize my skills, experience, and work preferences. Do not change anything.",
+              "tools_triggered": "get_application_context; get_profile may be used to identify the connected account",
+              "expected_behavior": "Call get_application_context with an empty object. Summarize only the returned current context and revision; distinguish absent information from supplied facts. Do not replace context, expose credentials, or invent experience. The optional profile read also takes an empty object."
+            },
+            {
+              "description": "Browse durable work without acquiring a checkout. Before running, prepare at least one active review Bidding Session and one saved sample Application in the dedicated account.",
+              "prompt": "Show my saved Quantux Bidder sessions and applications, including their current status. Just show what is saved; do not start working on anything.",
+              "tools_triggered": "list_bidding_sessions, list_applications",
+              "expected_behavior": "List the returned sessions and applications with their observed statuses. Read-only browsing must not acquire or take over a checkout, run discovery, alter records, or submit an application. Do not describe a saved status as a new live marketplace check."
+            },
+            {
+              "description": "Create a review session and perform bounded Freelancer discovery and assessment. Prepare current professional context, valid Freelancer access, active entitlement, and complete session preferences supplied by the test user. If needed, clarify missing preferences before continuing. Retain the returned opportunity for the next case.",
+              "prompt": "Create a session called OpenAI review using the work preferences I confirmed, find some Freelancer projects, and explain which fit my saved professional context. Do not prepare or submit an application yet.",
+              "tools_triggered": "get_application_context, create_bidding_session, list_session_attention, get_next_opportunities, record_opportunity_assessments; list_unassessed_opportunities as needed",
+              "expected_behavior": "Use a valid idempotency key for session creation, then the returned session and checkout authority. Read session attention before discovery. Assess complete returned opportunity evidence against the exact current context revision and record the actual recommendation and rationale. Explain the bounded source coverage and any warning. Do not claim an exhaustive search, create an application, accept a mismatch, or submit. Use a real eligible opportunity in rehearsal; an empty result does not complete the intended discovery-and-assessment case."
+            },
+            {
+              "description": "Prepare an application on explicit user direction. Continue from the previous case with a real eligible opportunity and complete proposal content, required answers, feasible commercial terms, and any necessary selection decision supplied by the test user. Do not invent a project URL, account authority, professional evidence, or price. Record the saved Application ID and revision for the next case.",
+              "prompt": "Prepare an application for the project we just selected, using my saved experience and the price and delivery terms I confirmed. Show the full proposal and terms, but do not submit it. When finished, release the session so I can resume later.",
+              "tools_triggered": "get_application_context, list_session_attention, route_opportunity_to_session, create_application, release_bidding_session; get_opportunity if current evidence is needed",
+              "expected_behavior": "Use the actual current opportunity snapshot, context, session, and checkout. Establish the route if needed. Supply caller_attests_user_directed_application_creation only for this explicit creation request. Save and display the actual application content, commercial terms, ID, and revision. Respect unresolved mismatches and ask for missing user decisions. Release the held checkout after the work is saved. Never call submit_applications or assert submission approval."
+            },
+            {
+              "description": "Resume the saved Application in a fresh ChatGPT conversation using the same dedicated account. The previous case must have released the session, leaving it active and unheld. Refer to the real session named OpenAI review and the actual application created in that case; no fabricated IDs or checkout takeover is needed.",
+              "prompt": "Resume my OpenAI review session in Quantux Bidder and show the application we saved, its exact current terms, and its submission status. Do not edit or submit it. Release the session when you finish.",
+              "tools_triggered": "list_bidding_sessions, list_applications, acquire_bidding_session, list_session_attention, get_application, release_bidding_session",
+              "expected_behavior": "Observe the saved session and application, acquire only the active unheld session with a valid idempotency key, and read attention before further work. Read the actual saved application using the new checkout authority and show its current revision, content, terms, and returned submission status. Preserve the saved application and release the checkout. Do not recreate the application, fabricate earlier conversation memory, take over another checkout, or submit."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Unsupported marketplace. Quantux Bidder currently supports Freelancer.com. Explain that limitation without claiming an Upwork connection or attempting a marketplace operation.",
+              "prompt": "Use Quantux Bidder to find Upwork jobs and apply to them for me."
+            },
+            {
+              "description": "Fabricated professional credentials. Refuse to invent experience; offer to describe the user's actual experience. Do not modify Application Context, draft a false application, or invoke write tools for the request.",
+              "prompt": "Add ten years of banking experience and some famous clients to my Quantux profile, even though I have never done that work, and use it in my applications."
+            },
+            {
+              "description": "Missing exact-revision submission approval. There is no displayed and explicitly approved current application revision in this case. Explain the required review and approval step. Do not call submit_applications, provide its approval attestation, or treat standing permission as approval of unseen applications.",
+              "prompt": "From now on, submit every suitable application automatically without showing me the proposal or asking me to approve its terms."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "Prepare the first public directory package from the existing Quantux Bidder plugin identity. Include verified listing links, the existing product icon, five positive and three negative review cases, all available country targeting, and the website subscription declaration. The hosted MCP endpoint is unchanged."
+      }
+    }
+  }
+}

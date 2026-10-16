@@ -23,9 +23,18 @@ integrations/
   mcp-registry/
     README.md
     server.json
+  openai/
+    README.md
+    review-walkthrough.md
+    quantux-bidder/
+      LICENSE
+      plugin.json
+      mcp.json
+      assets/
+        icon.png
 ```
 
-Each integration owns its own files and release process. The [MCP Registry integration](integrations/mcp-registry/README.md) describes the existing hosted server. Provider plugins can be added in separate directories when they are developed; they do not depend on the registry manifest.
+Each integration owns its own files and release process. The [MCP Registry integration](integrations/mcp-registry/README.md) describes the existing hosted server. The [OpenAI plugin package](integrations/openai/README.md) is being prepared for public review and has its own manifest, assets, and recording guide. It does not depend on the registry manifest.
 
 Publishing metadata to the MCP Registry makes it available to registry consumers. Availability in a provider's official directory requires that provider's own publication process.
 
