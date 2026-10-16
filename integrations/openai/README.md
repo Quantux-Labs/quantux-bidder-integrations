@@ -4,6 +4,8 @@ This integration prepares Quantux Bidder for the public plugin directory. Its po
 
 The publisher selected for this submission is **Quantux Labs LLC**. The intended availability is all countries OpenAI permits. Work tools use the account's existing Quantux Bidder trial or subscription purchased on the website.
 
+Public listing text describes functionality only. Keep pricing, subscriptions, trials, promotions, and checkout instructions out of the subtitle and descriptions. Explain the actual commerce model in `extensions.com.openai.review`, which is separate from the public listing.
+
 ## Package contents
 
 ```text
@@ -29,7 +31,9 @@ Version `0.1.0` is the first public plugin release. The plugin name is `quantux-
 - Release notes, commerce explanation, and country availability: declared in `plugin.json`.
 - Demo recording and accessible recording URL: **not completed**. Follow the [recording guide](review-walkthrough.md).
 - Dedicated reviewer account, working Freelancer connection, sample work, and continuing entitlement: **not verified**. Enter credentials and private instructions only in the portal's secure reviewer-access fields.
-- Selected verified identity, actual imported OAuth connection, automated scans, saved review metadata, and legal attestations: **not verified in the submission portal**.
+- Portal draft: publisher name and country availability match the confirmed values. MCP connection, OpenAI domain verification, automated scans, reviewer access, and legal attestations remain incomplete or unverified.
+
+On 2026-10-16, the publisher's uploaded `0.1.0` draft was inspected in the portal. All five positive cases and three negative cases were present and marked complete. Supporting review content explicitly reported the missing `extensions.com.openai.review.demo_recording_url`. The draft also had a metadata finding for subscription wording in its description and incomplete MCP configuration. The source description and public release notes have since been corrected; the corrected ZIP still needs portal validation. A complete case form does not establish that the cases have been run successfully.
 
 The missing demo URL is intentionally absent from the manifest. Do not substitute a script, placeholder URL, or unverified recording. A structurally valid ZIP is a draft package until the remaining preparation and portal checks are complete. No public review or publication is established by this source.
 

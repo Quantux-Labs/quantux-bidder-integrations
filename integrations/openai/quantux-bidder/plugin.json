@@ -17,7 +17,7 @@
       "interface": {
         "displayName": "Quantux Bidder",
         "shortDescription": "AI bidding workspaces",
-        "longDescription": "Use your AI assistant with a saved Quantux Bidder workspace to find and assess Freelancer.com opportunities, maintain your professional context, and prepare applications at your direction. Reopen saved sessions and applications to continue earlier work. You review the current application content and commercial terms before approving a submission. A connected Freelancer account and an active Quantux Bidder trial or subscription are required for work tools. Account setup and subscription management take place on the Quantux Bidder website. Quantux Bidder does not provide an AI subscription or guarantee work or earnings.",
+        "longDescription": "Find and assess Freelancer.com projects, organize your work in bidding sessions, and prepare applications using your saved professional context. Reopen saved applications to continue earlier work. Review each proposal and its terms before approving submission. Quantux Bidder keeps your workflow records available across conversations.",
         "developerName": "Quantux Labs LLC",
         "category": "Productivity",
         "capabilities": ["Read", "Write"],
@@ -83,7 +83,7 @@
       },
       "publication": {
         "countries": [],
-        "release_notes": "Initial public directory package for Quantux Bidder. Includes listing links, the product icon, five positive and three negative review cases, all available country targeting, and the website subscription declaration. Connects to the hosted Quantux Bidder MCP endpoint."
+        "release_notes": "Initial release with Freelancer.com opportunity discovery, saved bidding sessions, professional context, application preparation, and user-approved submission."
       }
     }
   }
