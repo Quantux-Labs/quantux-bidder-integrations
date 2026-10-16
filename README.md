@@ -31,7 +31,8 @@ integrations/
       plugin.json
       mcp.json
       assets/
-        icon.png
+        quantux-bidder-logo.svg
+        quantux-bidder-logo.png
 ```
 
 Each integration owns its own files and release process. The [MCP Registry integration](integrations/mcp-registry/README.md) describes the existing hosted server. The [OpenAI plugin package](integrations/openai/README.md) is being prepared for public review and has its own manifest, assets, and recording guide. It does not depend on the registry manifest.

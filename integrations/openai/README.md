@@ -12,7 +12,8 @@ quantux-bidder/
   plugin.json
   mcp.json
   assets/
-    icon.png
+    quantux-bidder-logo.svg
+    quantux-bidder-logo.png
 ```
 
 The ZIP must contain this single plugin directory. Keep the MCP Registry's `server.json`, these preparation notes, Git metadata, backend source, credentials, and recorded account details outside the ZIP.
@@ -23,7 +24,7 @@ Version `0.1.0` is the first public plugin release. The plugin name is `quantux-
 
 - Publisher name, country availability, and website subscription model: confirmed by the publisher.
 - Website, support, privacy, and terms destinations: inspected publicly on 2026-10-15.
-- Icon: reuse the current committed Quantux Bidder faceted blue B design as a square PNG.
+- Logo: the exact `products/quantux-bidder/public/quantux-bidder-logo.svg` supplied by the publisher is included in `assets/`. The listing and composer icon use a 512 x 512 transparent PNG rendered from that SVG, with its aspect ratio and geometry preserved.
 - Five positive and three negative review cases: drafted in `plugin.json` from the supported MCP interface; **not run** against a reviewer account.
 - Release notes, commerce explanation, and country availability: declared in `plugin.json`.
 - Demo recording and accessible recording URL: **not completed**. Follow the [recording guide](review-walkthrough.md).

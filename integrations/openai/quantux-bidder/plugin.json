@@ -26,8 +26,8 @@
         "privacyPolicyURL": "https://quantux-bidder.quantuxlabs.com/privacy",
         "termsOfServiceURL": "https://quantux-bidder.quantuxlabs.com/terms",
         "defaultPrompt": "Read my Application Context and list my Bidding Sessions without changing anything.",
-        "logo": "./assets/icon.png",
-        "composerIcon": "./assets/icon.png"
+        "logo": "./assets/quantux-bidder-logo.png",
+        "composerIcon": "./assets/quantux-bidder-logo.png"
       },
       "review": {
         "commerce": true,
