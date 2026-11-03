@@ -9,7 +9,7 @@ The plugin name and publisher remain Quantux Bidder and Quantux Labs LLC. Its re
 From the public integrations repository root, choose a ZIP path outside the plugin directory:
 
     git archive --format=zip --prefix=quantux-bidder/ --output=C:\path\to\quantux-bidder.zip HEAD:openai/quantux-bidder
-    tar -tf C:\path\to\quantux-bidder.zip
+    & "$env:SystemRoot\System32\tar.exe" -tf C:\path\to\quantux-bidder.zip
 
 The only archive root is quantux-bidder/. Include its plugin.json, mcp.json, LICENSE and referenced assets. Keep registry files, review instructions, Git metadata, backend code, credentials and account details outside the archive. Validate the JSON against its declared schemas and check the OpenAI-specific requirements.
 
