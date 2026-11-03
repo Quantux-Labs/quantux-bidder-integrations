@@ -2,45 +2,25 @@
 
 Public integration metadata and connection instructions for [Quantux Bidder](https://quantux-bidder.quantuxlabs.com).
 
-Published MCP Registry entry: [`com.quantuxlabs/quantux-bidder`](https://registry.modelcontextprotocol.io/v0.1/servers/com.quantuxlabs%2Fquantux-bidder/versions/0.1.0), version `0.1.0`.
+Quantux Bidder helps you find Freelancer projects, assess opportunities and prepare applications with your AI assistant. Applications follow your direction; submission requires approval of the exact current content and commercial terms.
 
-Quantux Bidder helps you find freelance work, assess opportunities, and prepare applications with your AI assistant. Freelancer is the currently supported marketplace. Application work follows your direction, and submission requires your approval.
+## Connect
 
-## Connect to the hosted MCP server
+Use an assistant that supports remote MCP servers and OAuth authorization. Add:
 
-Use an assistant that supports remote MCP servers and OAuth authorization. Add this server address, then sign in to Quantux Bidder and authorize the connection when prompted:
+    https://quantux-bidder.quantuxlabs.com/mcp
 
-```text
-https://api-quantux-bidder.quantuxlabs.com/mcp
-```
+Sign in to Quantux Bidder and authorize the connection when prompted. [Account setup and access](https://quantux-bidder.quantuxlabs.com/account) belong to the website.
 
-The server uses Streamable HTTP. Account setup and product information are available on the [Quantux Bidder website](https://quantux-bidder.quantuxlabs.com).
+## Integrations
 
-## Repository layout
+- [MCP Registry](mcp-registry/README.md): metadata for the existing hosted server, published as [com.quantuxlabs/quantux-bidder](https://registry.modelcontextprotocol.io/v0.1/servers/com.quantuxlabs%2Fquantux-bidder/versions/latest).
+- [OpenAI plugin](openai/README.md): the portable package and review procedure. The public ChatGPT plugin is coming soon.
 
-```text
-integrations/
-  mcp-registry/
-    README.md
-    server.json
-  openai/
-    README.md
-    review-walkthrough.md
-    quantux-bidder/
-      LICENSE
-      plugin.json
-      mcp.json
-      assets/
-        quantux-bidder-logo.svg
-        quantux-bidder-logo.png
-```
+Each integration has its own manifest and release process. Registry publication provides discovery metadata; provider directories have their own submission and review.
 
-Each integration owns its own files and release process. The [MCP Registry integration](integrations/mcp-registry/README.md) describes the existing hosted server. The [OpenAI plugin package](integrations/openai/README.md) is being prepared for public review and has its own manifest, assets, and recording guide. It does not depend on the registry manifest.
+## Source and license
 
-Publishing metadata to the MCP Registry makes it available to registry consumers. Availability in a provider's official directory requires that provider's own publication process.
+Quantux Labs maintains these files in its private product monorepo and automatically exports this public repository after successful main qualification. Make integration changes in that source; support is available on the [website](https://quantux-bidder.quantuxlabs.com/support).
 
-## Scope and license
-
-This repository contains public integration files for a separately hosted service. The hosted server implementation is maintained separately.
-
-Files in this repository are available under the [MIT License](LICENSE). Metadata submitted to the official MCP Registry is additionally subject to the registry's [CC0 dedication](https://modelcontextprotocol.io/registry/terms-of-service).
+This repository contains integration material for a separately hosted service. Its files are available under the [MIT License](LICENSE). Registry metadata is additionally subject to the registry's [CC0 dedication](https://modelcontextprotocol.io/registry/terms-of-service).

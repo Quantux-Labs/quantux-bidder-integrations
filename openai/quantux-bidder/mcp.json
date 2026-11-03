@@ -3,7 +3,7 @@
   "mcpServers": {
     "quantux-bidder": {
       "type": "streamable-http",
-      "url": "https://api-quantux-bidder.quantuxlabs.com/mcp"
+      "url": "https://quantux-bidder.quantuxlabs.com/mcp"
     }
   }
 }
